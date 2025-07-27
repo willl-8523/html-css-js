@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import "../../base_model/variables.css";
+
+:root {
+    --color-white-50: hsl(34, 61%, 99%);
+    --color-white-200: hsl(34, 61%, 93%);
+
+    --color-green-600: hsl(146, 64%, 35%);
+    --color-green-700: hsl(146, 64%, 25%);
+    --color-green-900: hsl(146, 64%, 12%);
+
+    --color-hex-yellow: #F8AD1E;
+    --color-yellow-600: hsl(38, 94%, 35%);
+    --color-yellow-800: hsl(38, 94%, 18%);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    margin: 0;
+    padding: 10px;
+    font-family: 'Roboto', sans-serif;
+    background: var(--color-white-200);
+    color: var(--color-white-50);
+    letter-spacing: .1em;
+    overflow: hidden;
+}
+
+h4 {
+    margin: 1rem;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: background 0.3s;
+}
+
+.counter,
+.final {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 320px;
+    min-height: 220px;
+    padding: 2.5rem 3rem;
+    border-radius: 1rem;
+    box-shadow: 10px 10px 20px var(--color-green-600), -10px -10px 20px var(--color-white-200);
+    background: var(--color-green-700);
+    transition: box-shadow 0.3s, background 0.3s;
+}
+
+.counter {
+    transform: translate(-50%, -50%);
+}
+
+.counter.hide {
+    transform: translate(-50%, -50%) scale(0);
+    animation: hide .2s ease-out;
+}
+
+.nums {
+    position: relative;
+    width: 250px;
+    height: 50px;
+    margin-bottom: 1rem;
+    font-size: 4rem;
+    font-weight: 700;
+    overflow: hidden;
+}
+
+.nums span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(120deg);
+    transform-origin: bottom center;
+}
+
+.nums span.in {
+    transform: translate(-50%, -50%) rotate(0);
+    animation: goIn .5s ease-in-out;
+}
+
+.nums span.out {
+    animation: goOut .5s ease-in-out;
+}
+
+.final {
+    transform: translate(-50%, -50%) scale(0);
+}
+
+.final h1 {
+    margin: 0;
+    font-size: 4rem;
+}
+
+.final.show {
+    transform: translate(-50%, -50%) scale(1);
+    animation: show .2s ease-out;
+}
+
+button#replay {
+    margin-top: 1rem;
+    padding: 0.8rem 2.2rem;
+    border: none;
+    border-radius: .5rem;
+    box-shadow: 0 2px 8px var(--color-green-700);
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: .12em;
+    background: var(--color-hex-yellow);
+    color: var(--color-green-900);
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+
+button#replay:hover {
+    box-shadow: 0 4px 8px var(--color-yellow-800);
+    background: var(--color-yellow-600);
+    color: var(--color-white-50);
+}
+
+@keyframes hide {
+    to {
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    from {
+        transform: translate(-50%, -50%) scale(0);
+    }
+}
+
+@keyframes show {
+    0% {
+        transform: translate(-50%, -50%) scale(0);
+    }
+
+    30% {
+        transform: translate(-50%, -50%) scale(1.4);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+@keyframes goIn {
+    0% {
+        transform: translate(-50%, -50%) rotate(120deg);
+    }
+
+    30% {
+        transform: translate(-50%, -50%) rotate(-20deg);
+    }
+
+    60% {
+        transform: translate(-50%, -50%) rotate(10deg);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+}
+
+@keyframes goOut {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    60% {
+        transform: translate(-50%, -50%) rotate(20deg);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(-120deg);
+    }
+}
