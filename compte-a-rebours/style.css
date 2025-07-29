@@ -45,16 +45,6 @@ h4 {
     transition: background 0.3s;
 }
 
-.h0 {
-    margin: 0;
-    font-size: 2.5rem;
-    text-align: center;
-    text-transform: uppercase;
-    font-weight: 700;
-    color: var(--color-green-900);
-    text-shadow: 0 0 2em var(--color-white-200);
-}
-
 .counter,
 .final {
     position: fixed;
