@@ -2,9 +2,11 @@
 @import "../../base_model/variables.css";
 
 :root {
+    --color-hex-white: #EED6BB;
     --color-white-50: hsl(34, 61%, 99%);
     --color-white-200: hsl(34, 61%, 93%);
 
+    --color-hex-green: #166138;
     --color-green-600: hsl(146, 64%, 35%);
     --color-green-700: hsl(146, 64%, 25%);
     --color-green-900: hsl(146, 64%, 12%);
@@ -12,6 +14,11 @@
     --color-hex-yellow: #F8AD1E;
     --color-yellow-600: hsl(38, 94%, 35%);
     --color-yellow-800: hsl(38, 94%, 18%);
+
+    --color-hex-red: #B11E31;
+
+    --color-radial-linear-gradient: radial-gradient(var(--color-hex-white), var(--color-hex-yellow)),
+        linear-gradient(135deg, var(--color-hex-green), var(--color-hex-red));
 }
 
 * {
@@ -23,7 +30,8 @@ body {
     margin: 0;
     padding: 10px;
     font-family: 'Roboto', sans-serif;
-    background: var(--color-white-200);
+    background: var(--color-radial-linear-gradient);
+    background-blend-mode: screen;
     color: var(--color-white-50);
     letter-spacing: .1em;
     overflow: hidden;
@@ -35,6 +43,16 @@ h4 {
     text-transform: uppercase;
     font-weight: 500;
     transition: background 0.3s;
+}
+
+.h0 {
+    margin: 0;
+    font-size: 2.5rem;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--color-green-900);
+    text-shadow: 0 0 2em var(--color-white-200);
 }
 
 .counter,
@@ -51,7 +69,7 @@ h4 {
     min-height: 220px;
     padding: 2.5rem 3rem;
     border-radius: 1rem;
-    box-shadow: 10px 10px 20px var(--color-green-600), -10px -10px 20px var(--color-white-200);
+    box-shadow: 10px 10px 20px var(--color-green-600), -10px -10px 20px transparent;
     background: var(--color-green-700);
     transition: box-shadow 0.3s, background 0.3s;
 }
@@ -79,6 +97,7 @@ h4 {
     position: absolute;
     top: 50%;
     left: 50%;
+    text-shadow: 0 0 0.1em var(--color-green-900);
     transform: translate(-50%, -50%) rotate(120deg);
     transform-origin: bottom center;
 }
@@ -99,6 +118,7 @@ h4 {
 .final h1 {
     margin: 0;
     font-size: 4rem;
+    text-shadow: 0 0 0.2em var(--color-green-900);
 }
 
 .final.show {
