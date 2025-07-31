@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap');
+
+:root {
+  --color-hex-white: #EED6BB;
+  --color-white-50: hsl(34, 61%, 99%);
+  --color-white-200: hsl(34, 61%, 93%);
+
+  --color-hex-green: #166138;
+  --color-green-600: hsl(146, 64%, 35%);
+  --color-green-700: hsl(146, 64%, 25%);
+  --color-green-900: hsl(146, 64%, 12%);
+
+  --color-hex-yellow: #F8AD1E;
+  --color-yellow-600: hsl(38, 94%, 35%);
+  --color-yellow-800: hsl(38, 94%, 18%);
+
+  --color-hex-red: #B11E31;
+
+  --color-radial-linear-gradient: radial-gradient(var(--color-hex-white), var(--color-hex-yellow)),
+    linear-gradient(135deg, var(--color-hex-green), var(--color-hex-red));
+}
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 7rem 0;
+  font-family: 'Noto Sans JP', sans-serif;
+  letter-spacing: .1rem;
+  line-height: 1.6;
+  background: var(--color-radial-linear-gradient);
+  background-blend-mode: screen;
+  color: var(--color-white-50);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.spacing>*+* {
+  margin-top: var(--spacer, 2rem);
+}
+
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  color: var(--clr-text, #fff);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 1.125rem;
+  padding: .5rem 1.25rem;
+  background: var(--clr-accent, blue);
+  border-radius: .25em;
+  transition: opacity 250ms linear;
+  transition: opacity 250ms linear;
+}
+
+.btn:hover,
+.btn:focus {
+  opacity: .85;
+}
+
+.wrapper {
+  width: 85%;
+  max-width: 65rem;
+  margin: 0 auto;
+}
+
+.shoe {
+  background: radial-gradient(var(--clr-inner, limegreen), var(--clr-outer, purple));
+  padding: 3rem;
+  border-radius: 1rem;
+  text-align: center;
+}
+
+.shoe__title {
+  font-size: clamp(3rem, calc(5vw + 1rem), 5.5rem);
+  text-transform: uppercase;
+  line-height: 1;
+  color: #fff;
+  text-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.2);
+}
+
+.shoe__image {
+  margin: -7em auto 0;
+}
+
+.wrapper .shoe:first-child {
+  --clr-inner: var(--color-hex-red);
+  --clr-outer: var(--color-hex-yellow);
+  --clr-text: var(--color-hex-white);
+  --clr-accent: var(--color-hex-green);
+}
+
+@media (min-width: 45rem) {
+  .shoe {
+    text-align: left;
+  }
+
+  .shoe__title {
+    margin: 0;
+  }
+
+  .shoe__image {
+    float: right;
+    width: 50%;
+    shape-outside: url(./img/shoe.png);
+    shape-margin: 2rem;
+    margin: -2rem -5rem 0 0;
+  }
+
+  .shoe:nth-child(even) .shoe__image {
+    shape-outside: url(./img/shoe-2.png);
+    float: left;
+    margin: -2rem 0 0 -5rem;
+  }
+}
